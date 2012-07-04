@@ -1,6 +1,6 @@
 #
 # ioq3 Makefile (with Open Arena modifications)
-# 
+#
 # GNU Make required
 #
 
@@ -850,9 +850,9 @@ ifndef SHLIBNAME
   SHLIBNAME=$(ARCH).$(SHLIBEXT)
 endif
 
-ifneq ($(BUILD_SERVER),0)
-  TARGETS += $(B)/oa_ded$(FULLBINEXT)
-endif
+#ifneq ($(BUILD_SERVER),0)
+#  TARGETS += $(B)/oa_ded$(FULLBINEXT)
+#endif
 
 ifneq ($(BUILD_CLIENT),0)
   TARGETS += $(B)/openarena$(FULLBINEXT)
@@ -1034,7 +1034,8 @@ endef
 #############################################################################
 
 default: release
-all: debug release
+#all: debug release
+all: debug
 
 debug:
 	@$(MAKE) targets B=$(BD) CFLAGS="$(CFLAGS) $(BASE_CFLAGS) $(DEPEND_CFLAGS)" \
@@ -2231,11 +2232,11 @@ endif
 #	$(INSTALL) $(STRIP_FLAG) -m 0755 $(BR)/openarena-smp$(FULLBINEXT) $(COPYBINDIR)/openarena-smp$(FULLBINEXT)
 #endif
 
-ifneq ($(BUILD_SERVER),0)
-	@if [ -f $(BR)/oa_ded$(FULLBINEXT) ]; then \
-		$(INSTALL) $(STRIP_FLAG) -m 0755 $(BR)/oa_ded$(FULLBINEXT) $(COPYBINDIR)/oa_ded$(FULLBINEXT); \
-	fi
-endif
+#ifneq ($(BUILD_SERVER),0)
+#	@if [ -f $(BR)/oa_ded$(FULLBINEXT) ]; then \
+#		$(INSTALL) $(STRIP_FLAG) -m 0755 $(BR)/oa_ded$(FULLBINEXT) $(COPYBINDIR)/oa_ded$(FULLBINEXT); \
+#	fi
+#endif
 
 ifneq ($(BUILD_GAME_SO),0)
 	$(INSTALL) $(STRIP_FLAG) -m 0755 $(BR)/baseoa/cgame$(SHLIBNAME) \
