@@ -1,6 +1,6 @@
 #
 # ioq3 Makefile (with Open Arena modifications)
-#
+# 
 # GNU Make required
 #
 
